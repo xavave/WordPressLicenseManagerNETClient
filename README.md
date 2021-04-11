@@ -11,6 +11,7 @@ Find it [here](https://www.nuget.org/packages/WPLMNETClient_Extended/).
 
 ``` Install-Package WPLMNETClient_Extended ```
 
+thanks to  https://github.com/jliliamen/WordPressLicenseManagerNETClient for first version 
  
 # Examples
 
