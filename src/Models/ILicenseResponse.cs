@@ -13,6 +13,10 @@ namespace WordPressLicenseManagerNETClient.Models
     public interface ILicenseResponse
     {
         /// <summary>
+        /// Id
+        /// </summary>
+        int Id { get; }
+        /// <summary>
         /// Success or failure
         /// </summary>
         bool Success { get; }
@@ -129,7 +133,8 @@ namespace WordPressLicenseManagerNETClient.Models
                 PropertyChanged(this, new PropertyChangedEventArgs("LicenseKey"));
             }
         }
-
+        [JsonProperty("id")]
+        public int Id { get; private set; }
         [JsonProperty("key")]
         public string Key { get; private set; }
 

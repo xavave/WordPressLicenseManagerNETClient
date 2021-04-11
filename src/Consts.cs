@@ -32,6 +32,15 @@ namespace WordPressLicenseManagerNETClient.Consts
         /// </summary>
         [Description("slm_check")]
         Check,
-
+        /// <summary>
+        /// get an existing license by product reference
+        /// </summary>
+        [Description("slm_get")]
+        Get,
+        /// <summary>
+        /// update existing new license
+        /// </summary>
+        [Description("slm_update")]
+        Update,
     }
 }

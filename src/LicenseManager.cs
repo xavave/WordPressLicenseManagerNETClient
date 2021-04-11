@@ -115,7 +115,6 @@ namespace WordPressLicenseManagerNETClient
                     if (string.IsNullOrWhiteSpace(license.Key) == false)
                         restRequest.AddParameter("license_key", license.Key);
 
-
                     break;
                 case WordPressLicenseManagerNETClient.Consts.Action.Deactivate:
 
@@ -163,6 +162,29 @@ namespace WordPressLicenseManagerNETClient
 
                     if (string.IsNullOrWhiteSpace(license.Key) == false)
                         restRequest.AddParameter("license_key", license.Key);
+                    break;
+
+                case WordPressLicenseManagerNETClient.Consts.Action.Get:
+                    restRequest.AddParameter("secret_key", Configuration.ActivationKey);
+
+                    // add first name
+                    if (string.IsNullOrWhiteSpace(license.FirstName) == false)
+                        restRequest.AddParameter("first_name", license.FirstName);
+                    // add last name 
+                    if (string.IsNullOrWhiteSpace(license.LastName) == false)
+                        restRequest.AddParameter("last_name", license.LastName);
+                    // add company name 
+                    if (string.IsNullOrWhiteSpace(license.CompanyName) == false)
+                        restRequest.AddParameter("company_name", license.CompanyName);
+                    // add email
+                    if (string.IsNullOrWhiteSpace(license.Email) == false)
+                        restRequest.AddParameter("email", license.Email);
+
+                    if (string.IsNullOrWhiteSpace(license.Key) == false)
+                        restRequest.AddParameter("license_key", license.Key);
+
+                    if (string.IsNullOrWhiteSpace(license.ProductReference) == false)
+                        restRequest.AddParameter("product_ref", license.ProductReference);
                     break;
 
                 case WordPressLicenseManagerNETClient.Consts.Action.Create:
@@ -223,6 +245,65 @@ namespace WordPressLicenseManagerNETClient
                         throw new NewLicenseEmptyKeyException("Cannot create license with empty key.");
 
                     break;
+
+                case WordPressLicenseManagerNETClient.Consts.Action.Update:
+                    restRequest.AddParameter("secret_key", Configuration.SecretKey);
+
+
+                    restRequest.AddParameter("date_created", license.DateCreated.ToString("yyyy-MM-dd"));
+                    restRequest.AddParameter("date_renewed", license.DateRenewed.ToString("yyyy-MM-dd"));
+                    restRequest.AddParameter("date_expiry", license.DateExpired.ToString("yyyy-MM-dd"));
+
+                    // add license ID 
+                    if (!string.IsNullOrWhiteSpace(license.Id))
+                        restRequest.AddParameter("id", license.Id);
+
+                    // add product name
+                    if (string.IsNullOrWhiteSpace(license.ProductReference) == false)
+                        restRequest.AddParameter("product_ref", license.ProductReference);
+
+                    // add subscriber id 
+                    if (string.IsNullOrWhiteSpace(license.SubscriberID) == false)
+                        restRequest.AddParameter("subscr_id", license.SubscriberID);
+
+                    // add mode
+                    if (string.IsNullOrWhiteSpace(license.Mode) == false)
+                        restRequest.AddParameter("lic_mode", license.Mode);
+
+                    // add software version
+                    if (string.IsNullOrWhiteSpace(license.Version) == false)
+                        restRequest.AddParameter("version", license.Version);
+
+                    // add ip address
+                    if (string.IsNullOrWhiteSpace(license.IpAddress) == false)
+                        restRequest.AddParameter("ip_address", license.IpAddress);
+
+                    // add registered domain 
+                    if (string.IsNullOrWhiteSpace(license.RegisteredDomain) == false)
+                        restRequest.AddParameter("registered_domain", license.RegisteredDomain);
+
+                    // add first name
+                    if (string.IsNullOrWhiteSpace(license.FirstName) == false)
+                        restRequest.AddParameter("first_name", license.FirstName);
+                    // add last name 
+                    if (string.IsNullOrWhiteSpace(license.LastName) == false)
+                        restRequest.AddParameter("last_name", license.LastName);
+                    // add company name 
+                    if (string.IsNullOrWhiteSpace(license.CompanyName) == false)
+                        restRequest.AddParameter("company_name", license.CompanyName);
+                    // add email
+                    if (string.IsNullOrWhiteSpace(license.Email) == false)
+                        restRequest.AddParameter("email", license.Email);
+                    // add maximum number of domains allowed
+                    if (license.MaximumDomainAllowed >= 0)
+                        restRequest.AddParameter("maximum_domained_allowed", license.MaximumDomainAllowed);
+                    // add license key
+                    if (string.IsNullOrWhiteSpace(license.Key) == false)
+                        restRequest.AddParameter("license_key", license.Key);
+                  
+
+                    break;
+
                 default:
                     break;
             }

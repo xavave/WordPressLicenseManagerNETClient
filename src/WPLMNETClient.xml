@@ -34,6 +34,16 @@
             Check an existing license
             </summary>
         </member>
+        <member name="F:WordPressLicenseManagerNETClient.Consts.Action.Get">
+            <summary>
+            get an existing license by product reference
+            </summary>
+        </member>
+        <member name="F:WordPressLicenseManagerNETClient.Consts.Action.Update">
+            <summary>
+            update existing new license
+            </summary>
+        </member>
         <member name="T:WordPressLicenseManagerNETClient.LicenseManagerFactory">
             <summary>
             License Manager Factory. 
@@ -112,6 +122,11 @@
         <member name="T:WordPressLicenseManagerNETClient.Models.ILicenseResponse">
             <summary>
             License response
+            </summary>
+        </member>
+        <member name="P:WordPressLicenseManagerNETClient.Models.ILicenseResponse.Id">
+            <summary>
+            Id
             </summary>
         </member>
         <member name="P:WordPressLicenseManagerNETClient.Models.ILicenseResponse.Success">
